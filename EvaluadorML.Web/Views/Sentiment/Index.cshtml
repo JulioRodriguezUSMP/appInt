@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Análisis de Sentimiento";
+}
+<h2>Análisis de Sentimiento</h2>
+<form method="post">
+    <input type="text" name="opinion" placeholder="Escribe tu opinión" style="width:400px;" required />
+    <button type="submit">Analizar</button>
+</form>
+@if (ViewBag.Result != null)
+{
+    <div style="margin-top:20px;">
+        <strong>Resultado:</strong> @(ViewBag.Result.Prediction ? "Positivo" : "Negativo")<br />
+        <strong>Score:</strong> @ViewBag.Result.Score<br />
+        <strong>Probabilidad:</strong> @ViewBag.Result.Probability
+    </div>
+}
